@@ -10,6 +10,12 @@ import './assets/css/global.css'
 // eslint-disable-next-line no-unused-vars
 import axios from 'axios'
 // 配置请求的根路径
+axios.interceptors.request.use(config => {
+  console.log(config)
+  config.headers.Authorization = window.sessionStorage.getItem('token')
+  // 最后必须return config
+  return config
+})
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
 Vue.prototype.$http = axios
 

@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 // eslint-disable-next-line no-unused-vars
 import Login from '../components/Login'
 import Home from '../components/Home'
+import Welcome from '../components/Welcome'
+import Users from '../components/user/Users'
 
 Vue.use(VueRouter)
 
@@ -11,7 +13,21 @@ const vueRouter = new VueRouter({
   routes: [
     { path: '/', redirect: '/login' },
     { path: '/login', component: Login },
-    { path: '/home', component: Home }
+    {
+      path: '/home',
+      component: Home,
+      redirect: '/welcome',
+      children: [
+        {
+          path: '/welcome',
+          component: Welcome
+        },
+        {
+          path: '/users',
+          component: Users
+        }
+      ]
+    }
   ]
 })
 
