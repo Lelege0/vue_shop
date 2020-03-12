@@ -156,11 +156,11 @@ export default {
     }
   },
   created () {
-    this.getCateLsit()
+    this.getCateList()
   },
   methods: {
     // 获取商品分类数据
-    async getCateLsit () {
+    async getCateList () {
       const { data: res } = await this.$http.get('categories', { params: this.queryInfo })
       if (res.meta.status !== 200) {
         return this.$message.error('获取商品分类失败！')
@@ -174,12 +174,12 @@ export default {
     // 监听pagesize改变
     handleSizeChange (newSize) {
       this.queryInfo.pagesize = newSize
-      this.getCateLsit()
+      this.getCateList()
     },
     // 监听pagenun改变
     handleCurrentChange (newPage) {
       this.queryInfo.pagenum = newPage
-      this.getCateLsit()
+      this.getCateList()
     },
     // 展示添加分类的对话框的显示与隐藏
     showAddCateDialog () {
@@ -218,7 +218,7 @@ export default {
           return this.$message.error('添加分类失败！')
         }
         this.$message.success('添加分类成功！')
-        this.getCateLsit()
+        this.getCateList()
         this.addCatedialogVisible = false
       })
     },
@@ -255,7 +255,7 @@ export default {
         // 关闭对话框
         this.editDialogVisible = false
         // 刷新数据列表
-        this.getCateLsit()
+        this.getCateList()
         // 提示修改成功
         this.$message.success('更新分类成功！')
       })
@@ -286,7 +286,7 @@ export default {
         return this.$message.error('删除用户失败！')
       }
       this.$message.success('已成功删除！')
-      this.getCateLsit()
+      this.getCateList()
     }
   }
 }
