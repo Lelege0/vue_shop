@@ -270,7 +270,7 @@ export default {
     async showEditDialog (id) {
       const { data: res } = await this.$http.get('users/' + id)
       if (res.meta.status !== 200) {
-        return this.$message.error('编辑用户信息失败！')
+        return this.$message.error('获取用户信息失败！')
       }
       this.editForm = res.data
       this.editDialogVisible = true

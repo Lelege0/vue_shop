@@ -62,8 +62,8 @@
       </el-dialog>
       <!--修改分类-->
       <el-dialog title="修改分类" :visible.sync="editDialogVisible" width="50%" @close="editCateDialodClosed">
-      <el-form :model="editForm" :rules="editFormRules" ref="editFormRef" label-width="70px">
-        <el-form-item label="分类名称">
+        <el-form :model="editForm" :rules="editFormRules" ref="editFormRef" label-width="90px">
+        <el-form-item label="分类名称:" prop="cat_name">
           <el-input v-model="editForm.cat_name"></el-input>
         </el-form-item>
       </el-form>
@@ -151,7 +151,7 @@ export default {
       },
       // 添加修改的觉得表单的验证规则
       editFormRules: {
-        cat_name: [{ required: true, message: '请输入邮箱', trigger: 'blur' }]
+        cat_name: [{ required: true, message: '请输入分类名称', trigger: 'blur' }]
       }
     }
   },
@@ -239,7 +239,7 @@ export default {
       if (res.meta.status !== 200) {
         return this.$message.error('修改分类失败！！')
       }
-      console.log(res.data)
+      // console.log(res.data)
       this.editForm = res.data
       this.editDialogVisible = true
     },
