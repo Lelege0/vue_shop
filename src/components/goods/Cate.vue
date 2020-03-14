@@ -165,7 +165,6 @@ export default {
       if (res.meta.status !== 200) {
         return this.$message.error('获取商品分类失败！')
       }
-      console.log(res.data)
       // 把数据泪飙赋值给catelist
       this.catelist = res.data.result
       // 为总数居条数赋值
@@ -194,14 +193,13 @@ export default {
       if (res.meta.status !== 200) {
         this.$message.error('获取父级分类数据失败！')
       }
-      console.log(res.data)
       this.parentCateList = res.data
     },
     // 选择项发生变化触发这个函数
     parentCateChange () {
       console.log(this.selectedKeys)
       if (this.selectedKeys.length > 0) {
-        // 父级分类的id
+        // 父级分类的 id
         this.addCateForm.cat_pid = this.selectedKeys[this.selectedKeys.length - 1]
         this.addCateForm.cat_level = this.selectedKeys.length
       } else {
@@ -264,7 +262,7 @@ export default {
     async removeCateById (id) {
       console.log(id)
       // 弹框询问用户是否删除
-      const confirmRsult = await this.$confirm(
+      const confirmResult = await this.$confirm(
         '此操作将永久删除该用户数据, 是否继续?',
         '提示',
         {
@@ -276,9 +274,9 @@ export default {
         return err
       })
       // 如果用户确认删除，则返回值位字符串confirm
-      console.log(confirmRsult)
+      console.log(confirmResult)
       // 如果用户取消了删除，则返回值位字符串cancel
-      if (confirmRsult !== 'confirm') {
+      if (confirmResult !== 'confirm') {
         return this.$message.info('已经取消删除')
       }
       const { data: res } = await this.$http.delete('categories/' + id)

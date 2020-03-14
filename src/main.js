@@ -13,14 +13,23 @@ import VueQuillEditor from 'vue-quill-editor'
 import 'quill/dist/quill.core.css' // import styles
 import 'quill/dist/quill.snow.css' // for snow theme
 import 'quill/dist/quill.bubble.css' // for bubble theme
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 
 // eslint-disable-next-line no-unused-vars
 import axios from 'axios'
 // 配置请求的根路径
+// 在request拦截器中显示进度条
 axios.interceptors.request.use(config => {
+  NProgress.start()
   console.log(config)
   config.headers.Authorization = window.sessionStorage.getItem('token')
   // 最后必须return config
+  return config
+})
+// 在response拦截器中隐藏进度条
+axios.interceptors.response.use(config => {
+  NProgress.done()
   return config
 })
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
