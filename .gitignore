@@ -2231,6 +2231,12 @@ yarn-error.log*
         "object.assign": "^4.1.0"
       }
     },
+    "babel-plugin-transform-remove-console": {
+      "version": "6.9.4",
+      "resolved": "https://registry.npm.taobao.org/babel-plugin-transform-remove-console/download/babel-plugin-transform-remove-console-6.9.4.tgz",
+      "integrity": "sha1-uYA2DAZzhOJLNXpYjYB9PINSd4A=",
+      "dev": true
+    },
     "babel-runtime": {
       "version": "6.26.0",
       "resolved": "https://registry.npm.taobao.org/babel-runtime/download/babel-runtime-6.26.0.tgz",
@@ -4174,6 +4180,14 @@ yarn-error.log*
       "requires": {
         "jsbn": "~0.1.0",
         "safer-buffer": "^2.1.0"
+      }
+    },
+    "echarts": {
+      "version": "4.6.0",
+      "resolved": "https://registry.npm.taobao.org/echarts/download/echarts-4.6.0.tgz",
+      "integrity": "sha1-taR6EEbOyTzu75VPnuVHUTQFWOw=",
+      "requires": {
+        "zrender": "4.2.0"
       }
     },
     "ee-first": {
@@ -8300,6 +8314,11 @@ yarn-error.log*
       "requires": {
         "path-key": "^2.0.0"
       }
+    },
+    "nprogress": {
+      "version": "0.2.0",
+      "resolved": "https://registry.npm.taobao.org/nprogress/download/nprogress-0.2.0.tgz",
+      "integrity": "sha1-y480xTIT2JVyP8urkH6UIq28r7E="
     },
     "nth-check": {
       "version": "1.0.2",
@@ -12508,6 +12527,12 @@ yarn-error.log*
           "dev": true
         }
       }
+    },
+    "zrender": {
+      "version": "4.2.0",
+      "resolved": "https://registry.npm.taobao.org/zrender/download/zrender-4.2.0.tgz",
+      "integrity": "sha1-0AEwLhVfKN4fn8f81cJUutKEcc8="
     }
   }
 }
+
